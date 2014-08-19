@@ -5,6 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour {
 	
+
 	public Rigidbody2D cRigidbody2D
 	{
 		get
@@ -17,15 +18,17 @@ public class Player : MonoBehaviour {
 	Rigidbody2D _cRigidbody2D;
 	
 	public float moveSpeed = 5;
-	
+
 	void FixedUpdate()
 	{
 		Move();
 	}
-	
+
+
+
 	void Move()
 	{
-		cRigidbody2D.velocity = new Vector2(moveSpeed * Input.GetAxisRaw("Horizontal"),
+		cRigidbody2D.velocity = new Vector2(moveSpeed * Input.acceleration.x,
 		                                    cRigidbody2D.velocity.y);
 	}
 }
